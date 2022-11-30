@@ -9,8 +9,8 @@
 from odps import ODPS
 from odps import options
 
-ACCESS_ID = 'key'
-ACCESS_KEY = 'pass'
+ACCESS_ID = 'LTAIaaaavK9FoBk'
+ACCESS_KEY = 'TKrkyHQbVbbbbvULi85h0TJxYzo'
 DEFAULT_PROJECT = 'cda'
 END_POINT = 'http://service.cn-shenzhen.maxcompute.aliyun.com/api'
 
@@ -29,7 +29,6 @@ select  family_name,opt_name, sum(effect_order_cnt) orders, opt_id
  group by  family_name,opt_name) a 
  group by family_name,opt_name,orders) a 
  where rank <= 10
-  
 """
 sql = """
 select * from (
