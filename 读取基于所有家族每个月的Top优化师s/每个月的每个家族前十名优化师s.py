@@ -9,21 +9,21 @@
 from odps import ODPS
 from odps import options
 
-ACCESS_ID = 'LTAI5t6MruTBLbd9GPYaef7B'
-ACCESS_KEY = 'ph8zkHlOitQkn6sIBKTgiXDPx4L6gF'
+ACCESS_ID = 'key'
+ACCESS_KEY = 'pass'
 DEFAULT_PROJECT = 'cda'
 END_POINT = 'http://service.cn-shenzhen.maxcompute.aliyun.com/api'
 
 o = ODPS(ACCESS_ID, ACCESS_KEY, DEFAULT_PROJECT, endpoint=END_POINT)
 options.tunnel.use_instance_tunnel = True
-options.tunnel.limit_instance_tunnel = False  # 关闭limit限制，读取全部数据。
+options.tunnel.limit_instance_tunnel = False  # 关闭limit限制，读取全部数据
 
 sql = """
 select * from (
 select family_name, opt_name,orders,ROW_NUMBER() over(partition  by family_name order by orders desc) rank from (
 select  family_name,opt_name, sum(effect_order_cnt) orders, opt_id
 -- team_name, sum(effect_order_cnt),sum(freight+charge_fee),sum(order_cny_amt),sum(freight+charge_fee)/sum(order_cny_amt)
- from giikin_aliyun.tb_dws_ord_order_si_crt_df  where pt>='20221101' and   pt<='20221127'
+ from giikin_aliyun.tb_dws_ord_order_si_crt_df  where pt>='20221101' and  pt<='20221127'
  and befrom='facebook'
  and opt_name is not null
  group by  family_name,opt_name) a 
