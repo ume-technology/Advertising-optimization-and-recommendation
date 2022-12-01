@@ -28,7 +28,6 @@ if __name__ == '__main__':
     # with open('giikinadcampaign.pick', 'wb') as f:
     #     pickle.dump(dataDF, f)
 
-
 sql = """
 CREATE TABLE `gk_campaign` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '系列id索引',
