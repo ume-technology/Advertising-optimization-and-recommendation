@@ -92,4 +92,9 @@ CREATE TABLE `gk_campaign` (
   UNIQUE KEY `UK1bjaf7nkamvo4a39qt8xxaket` (`campaign_id`,`platform`),
   KEY `IDXnswbc9m1lod02nbpivf3c3267` (`account_id`,`platform`)
 ) ENGINE=InnoDB AUTO_INCREMENT=564618 DEFAULT CHARSET=utf8;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 57b879aa2dbeaa06d57e512f09ddd34c008f73e4
 """
