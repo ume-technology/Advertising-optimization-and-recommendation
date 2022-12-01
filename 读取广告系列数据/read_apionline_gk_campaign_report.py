@@ -1,4 +1,4 @@
-# !usr/bin/env python
+    # !usr/bin/env python
 # -*- coding:utf-8 _*-
 """
 @Author:UmeAI
@@ -23,10 +23,24 @@ def readdatafromdatabase(sql):
 
 
 if __name__ == '__main__':
-    sql_campaign_report = """ select * from  gk_campaign_report"""  # 按照广告系列进行的商品统计
+    # fixme
+    #      ad_cost as '经营分析-花费RMB',
+    #      ad_spend_rmb as  '广告-原始花费', 两者区别是什么
+    sql_campaign_report = """ select 
+    gk_campaign_id,
+    ad_impression as '广告-展示量',ad_clicks as '广告-点击量',
+     e_checkout as '本地事件-添加支付信息量',e_purchase as '本地事件-购买量，或 转化量',
+     o_cod_count as '到付有效订单量',cod_order_count as '经营分析-到付订单量',
+     o_online_count as '在线有效订单量',online_order_count as  '在线支付订单量',
+     high_line as '利润率高点，', low_line as '利润率低点，', mid_line as '利润率中间点，',
+     profit_rate_result as '经营评估结果，HIGHT, MID, LOW, LOW2',
+     ad_cost as '经营分析-花费RMB',
+     ad_spend_rmb as  '广告-原始花费',
+     report_date as '报告日期'
+     from  gk_campaign_report"""  # 按照广告系列进行的商品统计
     dataDF = readdatafromdatabase(sql_campaign_report)
-    # with open('giikinadcampaign_report.pick', 'wb') as f:
-    #     pickle.dump(dataDF, f)
+    with open('giikinadcampaign_report.pick', 'wb') as f:
+        pickle.dump(dataDF, f)
 
 sql = """
 CREATE TABLE `gk_campaign_report` (
@@ -39,10 +53,10 @@ CREATE TABLE `gk_campaign_report` (
   `o_online_count` int(11) unsigned DEFAULT '0' COMMENT '订单-在线有效订单量',
   `ad_impression` int(11) unsigned DEFAULT '0' COMMENT '广告-展示量',
   `ad_clicks` int(11) unsigned DEFAULT '0' COMMENT '广告-点击量',
-   `high_line` decimal(19,2) DEFAULT '0.00' COMMENT '经营分析- 利润率高点，',
+  `high_line` decimal(19,2) DEFAULT '0.00' COMMENT '经营分析- 利润率高点，',
   `low_line` decimal(19,2) DEFAULT '0.00' COMMENT '经营分析- 利润率低点，',
   `mid_line` decimal(19,2) DEFAULT '0.00' COMMENT '经营分析- 利润率中间点，',
-    `profit_rate_result` varchar(50) DEFAULT NULL COMMENT '经营分析- 经营评估结果，HIGHT, MID, LOW, LOW2',
+  `profit_rate_result` varchar(50) DEFAULT NULL COMMENT '经营分析- 经营评估结果，HIGHT, MID, LOW, LOW2',
 
   `e_update_time` datetime DEFAULT NULL COMMENT '本地事件-更新事件',
   `ad_cost` decimal(19,2) unsigned DEFAULT '0.00' COMMENT '经营分析-花费RMB',

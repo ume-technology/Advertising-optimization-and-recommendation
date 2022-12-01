@@ -9,8 +9,9 @@
 from odps import ODPS
 from odps import options
 
-ACCESS_ID = 'LTAIaaaavK9FoBk'
-ACCESS_KEY = 'TKrkyHQbVbbbbvULi85h0TJxYzo'
+
+ACCESS_ID = 'LTAI5tHkaaaa5iivK9FoBk'
+ACCESS_KEY = 'TKrkyHQbVDaaaaaaULi85h0TJxYzo'
 DEFAULT_PROJECT = 'cda'
 END_POINT = 'http://service.cn-shenzhen.maxcompute.aliyun.com/api'
 

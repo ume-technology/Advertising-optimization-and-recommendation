@@ -4,7 +4,7 @@
 @Author:UmeAI
 @File:read_gdsc_gk_product_report.py
 @Time:2022/11/26 14:58
-@Read: 优化师投放的广告数据表；但是这里只在sql中读取了FB的数据信息
+@Read: 优化师投放的广告涉及到的产品数据表；但是这里只在sql中读取了FB的数据信息
 """
 import pickle
 import pymysql

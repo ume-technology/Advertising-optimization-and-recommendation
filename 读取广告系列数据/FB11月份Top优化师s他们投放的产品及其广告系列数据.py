@@ -14,7 +14,8 @@ import pymysql
 import pandas as pd
 from 读取基于所有家族每个月的Top优化师s.每个月的每个家族前十名优化师s import df  # 主要是获取各个家族Top优化师的ID信息
 from 读取广告系列数据.读取投放出去的所有产品数据 import gk_product_reporter_df, ader_idarea_id_groups
-from 读取广告系列数据.读取所有商品对应的广告系列数据 import giikin_campaign, giikin_campaign_report, context, context_ader_id_groups, context_ader_id_groups_keys_list
+from 读取广告系列数据.读取所有商品对应的广告系列数据 import giikin_campaign, giikin_campaign_report, context, context_ader_id_groups, \
+    context_ader_id_groups_keys_list
 
 # todo 确定优化师投放的商品
 # 202211月份 - 筛选特定家族的优化师
@@ -86,13 +87,13 @@ for eachOptId in 火凤凰Top优化师sID_11:
 #   10. start_time 开始时间是不是广告开始投放的时间   last_spend-最后一次花费改动
 #   11。target_cpa 目标出价金额都是None
 #   12. type 序列类型系列目标
-#      ======
+#      ===================
 #   13. 下面的字段有什么区别：
+#       下面字段以本地信息为准
 #       `ad_checkout` int(11) unsigned DEFAULT '0' COMMENT '广告-添加支付信息量',
 #       `e_checkout` int(11) unsigned DEFAULT '0' COMMENT '本地事件-添加支付信息量',
 #       `e_purchase` int(11) unsigned DEFAULT '0' COMMENT '本地事件-购买量，或 转化量',
 #       `ad_purchase` int(11) unsigned DEFAULT '0' COMMENT '广告-购买量，或转化量',
-#   14.   `profit_rate_result` varchar(50) DEFAULT NULL COMMENT '经营分析- 经营评估结果，HIGHT, MID, LOW, LOW2',
 火凤凰Top优化师sID_11_cam = {}
 for i in 火凤凰Top优化师sID_11:
     火凤凰Top优化师sID_11_cam['camby_' + str(i)] = context.loc[context_ader_id_groups.get(float(i))]
@@ -137,3 +138,5 @@ for i in 火凤凰Top优化师sID_11:
 #         金蝉Top优化师sID_11_not.append(i)
 # for i in 金蝉Top优化师sID_11:
 #     金蝉Top优化师sID_11_cam['camby_' + str(i)] = context.loc[context_ader_id_groups.get(float(i))]
+
+# todo 加载广告组：主要是为了发现优化师是如何进行广告组配置的；
