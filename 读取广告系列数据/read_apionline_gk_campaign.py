@@ -4,7 +4,7 @@
 @Author:UmeAI
 @File:read_apionline_gk_campaign.py
 @Time:2022/11/26 15:18
-@Read: 读取广告系列相关数据；读取的是优化从产品出发，投放出来的广告系列数据； 只选择了投放在FB平台的广告系列
+@Read: 读取广告系列相关数据；读取的是优化从产品出发，投放出来的广告系列数据； 只选择了投放在FB平台的广告系列;
 """
 import pickle
 import pymysql
