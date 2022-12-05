@@ -30,8 +30,8 @@ if __name__ == '__main__':
     start_time
     from gk_campaign where platform = 'facebook' """
     dataDF = readdatafromdatabase(sql_campaign)
-    # with open('giikinadcampaign.pick', 'wb') as f:
-    #     pickle.dump(dataDF, f)
+    with open('giikinadcampaign.pick', 'wb') as f:
+        pickle.dump(dataDF, f)
 
 sql = """
 CREATE TABLE `gk_campaign` (

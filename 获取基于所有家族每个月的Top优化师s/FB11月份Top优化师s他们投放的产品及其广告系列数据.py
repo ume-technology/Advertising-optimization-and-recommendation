@@ -9,6 +9,9 @@
         2.然后读取了所有投放在FB平台的产品，匹配了这些优化师投放在FB平台的都有哪些产品（无月份依赖）；
         3.最后读取了这些Top优化师投放出来的广告系列都有哪些（无月份依赖）；
 """
+import pickle
+import pymysql
+import pandas as pd
 from 获取基于所有家族每个月的Top优化师s.每个月的每个家族前十名优化师s import df  # 主要是获取各个家族Top优化师的ID信息
 from 对读取的广告系列数据进行汇总合并整理.读取投放在指定平台的产品数据.读取投放出去的所有产品数据 import gk_product_reporter_df, ader_id_groups
 from 对读取的广告系列数据进行汇总合并整理.读取指定平台的广告系列以及系列日报数据.concat_campaign_and_cam_report import context, context_ader_id_groups
