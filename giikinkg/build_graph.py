@@ -11,6 +11,7 @@ import json
 from decimal import Decimal
 from py2neo import Graph, Node
 from giikinkg.nodes_product import product_nodes as read_nodes
+from giikinkg.selfnodecls import MyDict
 
 
 class MedicalGraph:
@@ -180,11 +181,26 @@ class MedicalGraph:
         count = 0
         for disease_dict in disease_infos:
             input_dict = {}
+
             for k, v in disease_dict.items():
                 if isinstance(v, Decimal):
+                    v = str(v.quantize(Decimal('0.0')))
                     input_dict[k] = float(v)
-                if isinstance(v, dict):
-                    input_dict[k] = str(v)
+                # if k == '投放商品':
+                #     new_goods = []
+                #     for eachgoods in v:
+                #         tmpgoods = {}
+                #         for _k, _v in eachgoods:
+                #             if isinstance(v, Decimal):
+                #                 _v = str(_v.quantize(Decimal('0.0')))
+                #                 tmpgoods[_k] = _v
+                #             else:
+                #                 tmpgoods[_k] = _v
+                #         new_goods.append(tmpgoods)
+
+                # if isinstance(v, dict):
+                #     input_dict[k] = str(v)
+
                 if isinstance(v, list):
                     new_v = []
                     for _ in v:
@@ -193,26 +209,27 @@ class MedicalGraph:
                     input_dict[k] = new_v
                 else:
                     input_dict[k] = v
+
+            # tarnode = MyDict(input_dict, 'now_node')
+            # tarnode = tarnode.to_json()
+            # node = Node("Product", value=tarnode)
+
             node = Node("Product", **input_dict)
-            # node = Node(
-            #     "Disease", name=disease_dict['name'], desc=disease_dict['desc'],
-            #     prevent=disease_dict['prevent'], cause=disease_dict['cause'], easy_get=disease_dict['easy_get'],
-            #     cure_lasttime=disease_dict['cure_lasttime'], cured_prob=disease_dict['cured_prob']
-            # )
+            # node = Node("Disease", name=disease_dict['name'], desc=disease_dict['desc'],
+            #             prevent=disease_dict['prevent'], cause=disease_dict['cause'], easy_get=disease_dict['easy_get'],
+            #             cure_lasttime=disease_dict['cure_lasttime'], cured_prob=disease_dict['cured_prob'])
             self.g.create(node)
             count += 1
             # print(count)
         return
 
     def create_graphnodes(self):
-        '''创建知识图谱实体节点类型schema'''
-        # Drugs, Foods, Checks, Departments, Producers, Symptoms, Diseases, Cures, \
-        # disease_infos, rels_check, \
-        # rels_recommandeat, rels_noteat, rels_doeat, rels_department, rels_commonddrug, rels_drug_producer, \
-        # rels_recommanddrug, rels_symptom, rels_acompany, rels_category, rels_cureway = self.read_nodes()
-
-        pro_names, coloryuansu_tags, size_tags, group_tags, material_tags, design_tags, function_tags, fengge_tags, sellpoint_tags, \
-        usetime_tags, age_tags, selltime_tags, cat3_tags, dpgoods_tags, usescene_tags, dpcls_tags, body_tags, eat_tags, loc_tags, bof_tags, tas_tags, pubgoods_tags, \
+        """
+        创建知识图谱实体节点类型schema
+        :return:
+        """
+        pro_names, coloryuansu_tags, size_tags, group_tags, material_tags, design_tags, function_tags, fengge_tags, sellpoint_tags, usetime_tags, \
+        age_tags, selltime_tags, cat3_tags, dpgoods_tags, usescene_tags, dpcls_tags, body_tags, eat_tags, loc_tags, bof_tags, tas_tags, pubgoods_tags, \
         prt_infos, rels_prt_coloryuansu, rels_prt_size, rels_prt_groups, rels_prt_material, rels_prt_functions, rels_prt_design, rels_prt_fengge, rels_prt_sellpoint, \
         rels_prt_usetime, rels_prt_age, rels_prt_selltime, rels_prt_cat3, rels_prt_dpgoods, rels_prt_usescene, rels_prt_dpcls, rels_prt_pubgoods, rels_prt_body, rels_prt_eat, \
         rels_prt_loc, rels_prt_bof, rels_prt_tas = read_nodes()
@@ -233,9 +250,13 @@ class MedicalGraph:
         print(len(Cures))
         return
 
-    '''创建实体关系边'''
+    ''''''
 
     def create_graphrels(self):
+        """
+        创建实体关系边
+        :return:
+        """
         Drugs, Foods, Checks, Departments, Producers, Symptoms, Diseases, Cures, \
         disease_infos, rels_check, \
         rels_recommandeat, rels_noteat, rels_doeat, rels_department, rels_commonddrug, \
@@ -253,13 +274,18 @@ class MedicalGraph:
         self.create_relationship('Disease', 'Department', rels_category, 'belongs_to', '所属科室')
         self.create_relationship('Disease', 'Cure', rels_cureway, 'cure_way', '治疗方法')
 
-    '''创建实体关联边'''
-
     def create_relationship(self, start_node, end_node, edges, rel_type, rel_name):
-        # 开始结点和结束结点之间建立关系，并做好关系类型标记
-        count = 0
-        # 去重处理
-        set_edges = []
+        """
+        创建实体关联边
+        :param start_node:
+        :param end_node:
+        :param edges:
+        :param rel_type:
+        :param rel_name:
+        :return:
+        """
+        count = 0  # 开始结点和结束结点之间建立关系，并做好关系类型标记
+        set_edges = []  # 去重处理
         for edge in edges:
             set_edges.append('###'.join(edge))
         all = len(set(set_edges))
@@ -278,36 +304,11 @@ class MedicalGraph:
                 print(e)
         return
 
-    '''导出数据'''
-
     def export_data(self):
-        Drugs, Foods, Checks, Departments, Producers, Symptoms, Diseases, Cures, disease_infos, rels_check, rels_recommandeat, \
-        rels_noteat, rels_doeat, rels_department, rels_commonddrug, rels_drug_producer, rels_recommanddrug, rels_symptom, \
-        rels_acompany, rels_category, rels_cureway = self.read_nodes()
-        f_drug = open('drug.txt', 'w+')
-        f_food = open('food.txt', 'w+')
-        f_check = open('check.txt', 'w+')
-        f_department = open('department.txt', 'w+')
-        f_producer = open('producer.txt', 'w+')
-        f_symptom = open('symptoms.txt', 'w+')
-        f_disease = open('disease.txt', 'w+')
-
-        f_drug.write('\n'.join(list(Drugs)))
-        f_food.write('\n'.join(list(Foods)))
-        f_check.write('\n'.join(list(Checks)))
-        f_department.write('\n'.join(list(Departments)))
-        f_producer.write('\n'.join(list(Producers)))
-        f_symptom.write('\n'.join(list(Symptoms)))
-        f_disease.write('\n'.join(list(Diseases)))
-
-        f_drug.close()
-        f_food.close()
-        f_check.close()
-        f_department.close()
-        f_producer.close()
-        f_symptom.close()
-        f_disease.close()
-
+        """
+        导出数据
+        :return:
+        """
         return
 
 
