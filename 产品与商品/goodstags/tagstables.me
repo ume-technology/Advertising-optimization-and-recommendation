@@ -1,0 +1,15 @@
+# tb_dim_pro_category2_1688_df
+# tb_dwd_pro_gk_sale_etc_df
+# tb_dim_pro_product_instruction_df
+# tb_dim_pro_gk_category_sale_df
+# tb_dwd_pro_gk_product_category_df
+# tb_dim_pro_gk_options_values_df # 这个表需要和下面的SKU关联起来，才能进一步和product进行关联
+# sql = """SELECT * from giikin_aliyun.tb_dim_pro_gk_product_op_instruction_df """  # No - 空表
+# sql = """SELECT * from giikin_aliyun.tb_dim_pro_gk_tag_df """  # No - 产品标签表无需查询，是产品的属性/关系等字段存储，数据量很小；方便查看
+# sql = """SELECT * from giikin_aliyun.tb_dim_pro_gk_product_sku_detail_df """  # No - 产品SKU明细表，可以用来发现选票选出来的产品具备的SKU，暂时没用
+
+# 可以直接读取
+# sql = """SELECT * from giikin_aliyun.tb_dim_pro_gk_ali_tags_df"""  # 这是选品选出来的1688商品表信息, tb_dim_pro_gk_ali_tags_df-1688产品属性表，有详尽的商品属性标签
+# sql = """SELECT * from giikin_aliyun.tb_dim_pro_gk_product_df"""  # 产品信息维表
+# sql = """SELECT * from giikin_aliyun.tb_dim_pro_gk_product_tag_df """  # 产品标签属性表
+# sql = """SELECT * from giikin_aliyun.tb_dwd_pro_product_sale_df where pt='20220825'"""  # 产品商品信息表 家族/线路/优化师等信息字段

@@ -1,0 +1,52 @@
+# fixme 处理上述第二点业务：选品人员选出来的产品信息，需要保留如下字段：
+# 1.product_id；
+# 2.category_id; 该字段需要映射类别表信息；
+# 3.product_name
+# 4.seller_id  供应商信息 + 采购员 - 客单价/采购员花费之间的关系/因为采购成本是三大成本之一，故保留这些字段以成本
+# fixme 5.selection 选品人员ID信息，需要映射家族/线路表
+# 6.is_gift
+# 7.is_sensitive：0 => '', 1 => '敏感货', 2 => '液体', 3 => '易燃易爆品', 4 => '动漫IP', 5 => '危险药', 6 => '防疫品', 7 => '特殊货', 8 => '带电带磁', 9 => '易碎', 10 => '食品'
+# 8.key1688  1688上产品的分类信息，和giikin自己类别的对应分布
+# 9.has_sku  是否有SKU，SKU和订单量之间的关系，或者说SKU会对订单量产生怎样的影响；
+# 10.product_price 采购单价/产品价格
+# 11.volume 产品尺寸规格/体积
+# fixme 12.product_source 产品来源的映射表，这个没见过，需要看到
+# fixme 13.logistics_cost 物流成本 该指标是缺失的、
+# fixme 14.tags 特征标签，该字段value缺失
+# fixme 15.status 标签 这个字段是什么意思
+# fixme 16.collect_flag 采集标识，什么意思，有一个映射表
+# 17，note 有的产品有备注信息
+# fixme 18. product_image 产品图片信息，保留但暂不处理
+# fixme 19. stop_production 断货标记问题
+# fixme 20. org_code  不清楚什么字段
+# fixme 21. promotion_des 促销活动描述 都是null值
+# fixme 22. selling_point 买点 都是null值需要挖掘
+# 23. weight 产品重量
+# fixme 24. from_platform 来源平台，都是null值
+# fixme 25. product_brand 产品品牌信息，都是null值
+# 26. purchase_price 采购价格，注意和第10点产品价格之间的关系
+# 27. sign_rate 签收率信息
+# 28. is_bubble_cushion 是否需要气泡垫，这是产品的属性之一
+# 29. is_epidemic 是否防疫物品
+# 30. is_jewelry_box 饰品盒
+# 31. jewelry_box_spec 饰品盒规格
+# fixme 32. product_type  和产品ID之间的关系
+# 33. pack_type  包装类型 1 气泡袋 2 纸箱 0 无需包装
+# fixme 34. agent_seller  代发
+# fixme 35. delivery_method 以及代发的方式，
+# fixme 36. luban_examine  鲁班系统订单的产品审核     0 不需审核 1 未审核 2 审核通过        最后就是代发产品和其他产品的区别问题
+# 37. is_return  是否支持退货
+# 38. is_product_hot  是否添加到热销推荐商品
+# 38. material_name 产品材质属性
+# fixme 39. category_1688  和第8点的区别
+# fixme 40. descript 产品简介信息，都是null
+# 41. is_tag 产品是否贴标签
+# fixme 42. update_time 产品更新时间，这问题还是需要明确的
+# 43. category_lvl1_id 一级分类
+# 44. category_lvl1_name
+# 45. category_lvl2_id
+# 46. category_lvl2_name
+# 47. category_lvl3_id
+# 48. category_lvl3_name
+# 49. buyer_name 采购员姓名
+# 50. department_name 采购部门
