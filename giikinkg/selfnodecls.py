@@ -11,8 +11,7 @@ from decimal import Decimal
 
 res = str(Decimal('3.40').quantize(Decimal('0.0')))
 
-
-# from py2neo import Graph, Node
+from py2neo import Graph, Node
 
 
 class MyDict:
@@ -27,9 +26,8 @@ class MyDict:
     def to_json(self) -> str:
         return json.dumps(self, default=lambda obj: obj.__dict__, ensure_ascii=False, sort_keys=True)
 
-
-ml = MyDict({1: 2, 3: 4}, "1234")
-ml = ml.to_json()
+# ml = MyDict({1: 2, 3: 4}, "1234")
+# ml = ml.to_json()
 # graph = Graph('http://localhost:7474/', auth=("neo4j", "aa1230.aa"))
 # test_node_1 = Node(label="List", value=ml)
 # graph.create(test_node_1)

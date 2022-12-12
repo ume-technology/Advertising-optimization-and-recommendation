@@ -79,7 +79,7 @@ def product_nodes():
     rels_prt_bof = []
     rels_prt_tas = []
     # todo 因为在构建商品标签的过程中使用这个数据时，针对产品类别的确认不合理，因此这里再读pro-dim的数据，补全这个产品类别信息
-    with open('../融合产品维表tags和nertags以及两者数据的concat/tb_dim_pro_gk_product_df/tb_dim_pro_gk_product_df.pick', 'rb') as fprodim:
+    with open('../giikindataset/concattagwithnertags/tb_dim_pro_gk_product_df.pick', 'rb') as fprodim:
         prodim = pickle.load(fprodim)
 
     # todo 以【产品维表】为核心扩展出来的所有tags的TAGS数据（包括NER数据）
@@ -92,7 +92,7 @@ def product_nodes():
                 each_prts = eachprtwithtags.get('product_id')
                 each_prts = prodim.loc[prodim['product_id'] == each_prts]
                 each_prt = each_prts['product_name'].tolist()[0]
-            pro_names.append(each_prt)
+            # pro_names.append(each_prt)
             # for eachtag in alltags:
             #     prt_dict[eachtag] = ''
             # 商品属性创建

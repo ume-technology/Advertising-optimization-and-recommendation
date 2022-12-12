@@ -1,0 +1,156 @@
+{
+    "start_entity_type": "Department",
+    "end_entity_type": "Department",
+    "rel_type": "belongs_to",
+    "rel_name": "属于",
+    "rels": [
+        {
+            "start_entity_name": "肿瘤外科",
+            "end_entity_name": "肿瘤科"
+        },
+        {
+            "start_entity_name": "血液科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "遗传病科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "心内科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "神经内科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "心胸外科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "耳鼻喉科",
+            "end_entity_name": "五官科"
+        },
+        {
+            "start_entity_name": "内分泌科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "肿瘤内科",
+            "end_entity_name": "肿瘤科"
+        },
+        {
+            "start_entity_name": "普外科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "眼科",
+            "end_entity_name": "五官科"
+        },
+        {
+            "start_entity_name": "妇科",
+            "end_entity_name": "妇产科"
+        },
+        {
+            "start_entity_name": "骨外科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "风湿免疫科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "康复科",
+            "end_entity_name": "其他科室"
+        },
+        {
+            "start_entity_name": "小儿外科",
+            "end_entity_name": "儿科"
+        },
+        {
+            "start_entity_name": "肾内科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "烧伤科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "呼吸内科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "性病科",
+            "end_entity_name": "皮肤性病科"
+        },
+        {
+            "start_entity_name": "不孕不育",
+            "end_entity_name": "生殖健康"
+        },
+        {
+            "start_entity_name": "肛肠科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "其他综合",
+            "end_entity_name": "其他科室"
+        },
+        {
+            "start_entity_name": "减肥",
+            "end_entity_name": "其他科室"
+        },
+        {
+            "start_entity_name": "口腔科",
+            "end_entity_name": "五官科"
+        },
+        {
+            "start_entity_name": "整形美容科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "产科",
+            "end_entity_name": "妇产科"
+        },
+        {
+            "start_entity_name": "消化内科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "泌尿外科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "小儿内科",
+            "end_entity_name": "儿科"
+        },
+        {
+            "start_entity_name": "儿科综合",
+            "end_entity_name": "儿科"
+        },
+        {
+            "start_entity_name": "中医综合",
+            "end_entity_name": "中医科"
+        },
+        {
+            "start_entity_name": "皮肤科",
+            "end_entity_name": "皮肤性病科"
+        },
+        {
+            "start_entity_name": "泌尿内科",
+            "end_entity_name": "内科"
+        },
+        {
+            "start_entity_name": "感染科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "肝胆外科",
+            "end_entity_name": "外科"
+        },
+        {
+            "start_entity_name": "神经外科",
+            "end_entity_name": "外科"
+        }
+    ]
+}
